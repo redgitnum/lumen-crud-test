@@ -1,11 +1,12 @@
 <x-template>
     <div class="container">
         <h1>
-            Create New Book
+            Update Existing Book
         </h1>
-        <form action="{{ route('books.store') }}" method="POST" style="display: flex; flex-direction: column; gap: 0.4em;">
-            <input type="text" placeholder="book name" name="name">
-            <input type="text" placeholder="book author" name="author">
+        <form action="{{ route('books.update', ['id' => $book->id]) }}" method="POST" style="display: flex; flex-direction: column; gap: 0.4em;">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="text" placeholder="book name" name="name" value="{{ $book->name }}">
+            <input type="text" placeholder="book author" name="author" value="{{ $book->author }}">
             <button>Submit</button>
         </form>
     </div>
